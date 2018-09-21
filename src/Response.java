@@ -6,8 +6,9 @@ public class Response {
 	String reasonPhrase = "";
 	Resource resource;
 	
-	public Response( Resource resource ) {
+	public Response( Resource resource, int code ) {
 		this.resource = resource;
+		this.code = code;
 	}
 	
 	public void send ( OutputStream out ) {
@@ -18,6 +19,5 @@ public class Response {
 		printWriter.println("Content-Type: " + ); // Need to return resource ContentType
 		printWriter.println("Content-Length: " + ); // Need to Return body length
 		printWriter.println();
-	}
-	
+	}	
 }

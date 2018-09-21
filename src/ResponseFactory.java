@@ -5,5 +5,37 @@ public class ResponseFactory {
 		
 		File file = new File(resource.absolutePath());
 
+		if( file.exists() ) {
+
+			if( resource.isScript() ) {
+
+			}
+
+			else {
+
+				String verb = resource.getVerb();
+
+				if( verb == "GET" )  { 
+
+				}
+
+				if ( verb == "HEAD" ) {
+
+				}
+
+				if ( verb == "POST" ) {
+
+				}
+
+				if ( verb == "PUT" ) {
+
+				}
+
+				if ( verb == "DELETE" ) {
+					
+				}
+			}
+
+		}
 	}
 }

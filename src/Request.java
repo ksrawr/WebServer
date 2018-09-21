@@ -48,9 +48,17 @@ public class Request {
 	public String getBody() {
 		return this.body;
 	}
+
+	public String getVerb() {
+		return this.verb;
+	}
 	
 	public String getHttpVersion() {
 		return this.httpVersion;
+	}
+
+	public String getRequestString() {
+		return this.requestString;
 	}
 	
 	public HashMap<String, String> getHeaders() {
