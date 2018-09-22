@@ -16,9 +16,13 @@ public class Resource {
 		checkUriScriptAlias( alias, this.configuration);
 
 		if( isScript() != false ) {
-			absolutePath = this.config.scriptAliases.get("DocumentRoot") + alias;	
+			absolutePath = HttpdConf.scriptAliases.get("DocumentRoot") + alias;	
 		} 
 		
+	}
+	
+	public String getUri() {
+		return this.uri;
 	}
 	
 	public String absolutePath() {
@@ -35,18 +39,18 @@ public class Resource {
 
 	public void checkUriAlias( String[] alias, HttpdConf config ) {
 		
-		for( string temp : alias ) {
-			if( this.config.configOptions.containsKey( "/" + alias + "/" ) ) {
-				absolutePath = this.config.aliases.get( "/" + alias + "/");
+		for( String temp : alias ) {
+			if( HttpdConf.configOptions.containsKey( "/" + temp + "/" ) ) {
+				absolutePath = HttpdConf.aliases.get( "/" + temp + "/");
 			}
 		}
 	}
 	
 	public void checkUriScriptAlias( String[] alias, HttpdConf config ) {
 
-		for( string temp : alias ) {
-			if( this.config.configtOptions.containsKey( "/" + alias + "/") ) {
-				absolutePath = this.config.scriptAliases.get( "/" + alias + "/");
+		for( String temp : alias ) {
+			if( HttpdConf.configOptions.containsKey( "/" + temp + "/") ) {
+				absolutePath = HttpdConf.scriptAliases.get( "/" + temp + "/");
 				this.isScript = true;
 			}
 		}

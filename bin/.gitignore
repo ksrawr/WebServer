@@ -1,3 +1,13 @@
-/Htacess.class
+/ConfigurationReader.class
 /Htaccess.class
 /Htpassword.class
+/HttpdConf.class
+/Logger.class
+/MimeTypes.class
+/Request.class
+/Resource.class
+/Response.class
+/ResponseFactory.class
+/Server.class
+/Worker.class
+/conf/

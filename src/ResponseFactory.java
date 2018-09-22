@@ -1,3 +1,4 @@
+import java.io.File;
 
 public class ResponseFactory {
 	
@@ -13,7 +14,7 @@ public class ResponseFactory {
 
 			else {
 
-				String verb = resource.getVerb();
+				String verb = request.getVerb();
 
 				if( verb == "GET" )  { 
 

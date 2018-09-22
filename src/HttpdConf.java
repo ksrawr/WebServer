@@ -3,9 +3,9 @@ import java.util.HashMap;
 
 public class HttpdConf extends ConfigurationReader {
 	
-	private static HashMap<String, String> aliases;
-	private static HashMap<String, String> scriptAliases;
-	private static HashMap<String, String> configOptions;
+	static HashMap<String, String> aliases;
+	static HashMap<String, String> scriptAliases;
+	static HashMap<String, String> configOptions;
 	
 	
 	public HttpdConf( String fileName ) throws IOException {

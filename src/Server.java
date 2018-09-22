@@ -1,4 +1,6 @@
+import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.HashMap;
 
 public class Server {
@@ -7,18 +9,28 @@ public class Server {
 	private MimeTypes mimeTypes;
 	private ServerSocket socket;
 	private HashMap<String, String> accessFiles;
+	private Socket connection = null;
 	
 	public void start() {
-		configuration = new HttpdConf("conf/httpd.conf");
-		mimeTypes = new MimeTypes("conf/mime.types");
+		try {
+			configuration = new HttpdConf("conf/httpd.conf");
+			mimeTypes = new MimeTypes("conf/mime.types");
 
-		socket = new ServerSocket(Integer.parseInt(this.configuration.configOptions.get("Listen"));
-		Socket connection = null;
+			socket = new ServerSocket(Integer.parseInt(HttpdConf.configOptions.get("Listen")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		while( true ) {
-			connection = socket.accept();
-			//Worker worker = new Worker();
-			connection.close();
+			try {
+				connection = socket.accept();
+				//Worker worker = new Worker();
+				connection.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
