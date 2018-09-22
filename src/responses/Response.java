@@ -1,3 +1,6 @@
+package responses;
+
+import resource.*;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Date;
