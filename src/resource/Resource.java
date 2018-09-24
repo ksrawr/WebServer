@@ -1,3 +1,6 @@
+package resource;
+
+import configurationReader.HttpdConf;
 
 public class Resource {
 	

@@ -1,3 +1,5 @@
+package log;
+
 import java.io.File;
 
 public class Logger {

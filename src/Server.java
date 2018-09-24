@@ -1,3 +1,7 @@
+import configurationReader.HttpdConf;
+import configurationReader.MimeTypes;
+import worker.Worker;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
