@@ -1,5 +1,8 @@
 package log;
 
+import request.Request;
+import responses.Response;
+
 import java.io.File;
 
 public class Logger {

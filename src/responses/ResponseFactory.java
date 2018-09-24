@@ -41,10 +41,11 @@ public class ResponseFactory {
 				}
 
 				else {
-					return new BadRequestResponse( response );
+					return new BadRequestResponse( resource );
 				}
 			}
 
 		}
+		return new BadRequestResponse( resource );
 	}
 }

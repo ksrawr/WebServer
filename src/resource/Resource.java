@@ -19,7 +19,7 @@ public class Resource {
 		checkUriScriptAlias( alias, this.configuration);
 
 		if( isScript() != false ) {
-			absolutePath = HttpdConf.scriptAliases.get("DocumentRoot") + alias;	
+			absolutePath = HttpdConf.getScriptAliases().get("DocumentRoot") + alias;	
 		} 
 		
 	}
@@ -43,8 +43,8 @@ public class Resource {
 	public void checkUriAlias( String[] alias, HttpdConf config ) {
 		
 		for( String temp : alias ) {
-			if( HttpdConf.configOptions.containsKey( "/" + temp + "/" ) ) {
-				absolutePath = HttpdConf.aliases.get( "/" + temp + "/");
+			if( HttpdConf.getConfigOptions().containsKey( "/" + temp + "/" ) ) {
+				absolutePath = HttpdConf.getAliases().get( "/" + temp + "/");
 			}
 		}
 	}
@@ -52,8 +52,8 @@ public class Resource {
 	public void checkUriScriptAlias( String[] alias, HttpdConf config ) {
 
 		for( String temp : alias ) {
-			if( HttpdConf.configOptions.containsKey( "/" + temp + "/") ) {
-				absolutePath = HttpdConf.scriptAliases.get( "/" + temp + "/");
+			if( HttpdConf.getConfigOptions().containsKey( "/" + temp + "/") ) {
+				absolutePath = HttpdConf.getScriptAliases().get( "/" + temp + "/");
 				this.isScript = true;
 			}
 		}

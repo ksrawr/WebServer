@@ -1,3 +1,4 @@
+package configurationReader;
 
 public class Htaccess extends ConfigurationReader {
 	Htpassword userFile;

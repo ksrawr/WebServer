@@ -1,3 +1,5 @@
+package configurationReader;
+
 import java.util.HashMap;
 import java.util.Base64;
 import java.nio.charset.Charset;

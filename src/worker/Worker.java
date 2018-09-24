@@ -6,8 +6,6 @@ import log.Logger;
 import request.Request;
 import resource.Resource;
 import responses.Response;
-import responses.ReponseFactory;
-
 import java.net.Socket;
 
 public class Worker extends Thread {

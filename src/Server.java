@@ -20,7 +20,7 @@ public class Server {
 			configuration = new HttpdConf("conf/httpd.conf");
 			mimeTypes = new MimeTypes("conf/mime.types");
 
-			socket = new ServerSocket(Integer.parseInt(HttpdConf.configOptions.get("Listen")));
+			socket = new ServerSocket(Integer.parseInt(HttpdConf.getConfigOptions().get("Listen")));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

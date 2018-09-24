@@ -1,3 +1,5 @@
+package configurationReader;
+
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -58,5 +60,17 @@ public class HttpdConf extends ConfigurationReader {
 		if( HttpdConf.configOptions.get("DirectoryIndex") == null ) {
 			HttpdConf.configOptions.put("DirectoryIndex", "index.html");
 		}
+	}
+	
+	public static HashMap<String, String> getAliases() {
+		return HttpdConf.aliases;
+	}
+	
+	public static HashMap<String, String> getScriptAliases() {
+		return HttpdConf.scriptAliases;
+	}
+	
+	public static HashMap<String, String> getConfigOptions() {
+		return HttpdConf.configOptions;
 	}
 }
