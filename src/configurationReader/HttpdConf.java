@@ -21,10 +21,10 @@ public class HttpdConf extends ConfigurationReader {
 	public void load() throws IOException { 
 		
 		while(this.hasMoreLines()) {
-
-			if((this.nextLine() != "") && this.nextLine().charAt(0) != '#' ) {
+			//System.out.println("line: " + this.nextLine());
+			if((this.nextLine() != "") && ( this.nextLine().charAt(0) != '#' )) {
 				String[] lines = this.nextLine().split(" ");
-				
+								
 				String key = lines[0];
 				String value = lines[1];
 				

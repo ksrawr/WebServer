@@ -3,6 +3,7 @@ package configurationReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public abstract class ConfigurationReader {
@@ -10,7 +11,7 @@ public abstract class ConfigurationReader {
 	private File file = null;
 	private String fileName = "";
 	private Scanner scan = null;
-	//ArrayList<String> requestStrs;
+	private String line;
 	
 	public ConfigurationReader( String fileName ) {
 		try {
@@ -36,21 +37,41 @@ public abstract class ConfigurationReader {
 		}
 	}
 	
-	public boolean hasMoreLines() {
-		while(this.scan != null) {
-			System.out.println("scan not null!");
-			if(this.scan.hasNextLine()) {
-				return true;
-			} else {
-				return false;
-			}
+	public boolean hasMoreLines() throws IOException{
+		try {
+			line = this.scan.nextLine();
 		}
-		return false;
+		catch (NoSuchElementException e) {
+			return false;
+		}
+		
+		
+		//line = this.scan.nextLine();
+		
+		if(line != null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public String nextLine() throws IOException {
 		//System.out.println(this.scan.next());
-		return this.scan.nextLine();
+		/*
+		String nextLine = this.scan.nextLine();
+		if( this.hasMoreLines() && (nextLine != "")) {
+			System.out.println("nextLine: " + nextLine);
+			return nextLine;
+		} */
+		/*if( this.hasMoreLines() ) {
+			String nextLine = this.scan.nextLine();
+			System.out.println("nextLine: " + nextLine );
+			if( nextLine != "" ) {
+				return nextLine;
+			}
+		}
+		return " ";*/
+		return this.line;
 	}
 	
 	public abstract void load() throws IOException;
