@@ -7,16 +7,15 @@ import java.util.Scanner;
 
 public abstract class ConfigurationReader {
 	
-	File file = null;
-	static String fileName = "";
-	static Scanner classScan = null;
-	Scanner scan = null;
-	ArrayList<String> requestStrs;
+	private File file = null;
+	private String fileName = "";
+	private Scanner scan = null;
+	//ArrayList<String> requestStrs;
 	
 	public ConfigurationReader( String fileName ) {
 		try {
-			ConfigurationReader.fileName = fileName;
-			requestStrs = new ArrayList<String>();
+			this.fileName = fileName;
+			//requestStrs = new ArrayList<String>();
 			file = new File(fileName);
 			/*
 			FileReader fileReader = new FileReader(file);
@@ -30,8 +29,7 @@ public abstract class ConfigurationReader {
 			}
 			*/
 			scan = new Scanner(file);
-			classScan = scan;
-			scan.close();
+			//scan.close();
 		}
 		catch (IOException e) {
 			System.out.println(e.getMessage());
@@ -39,9 +37,9 @@ public abstract class ConfigurationReader {
 	}
 	
 	public boolean hasMoreLines() {
-		classScan = scan;
-		while(classScan != null) {
-			if(classScan.hasNextLine()) {
+		while(this.scan != null) {
+			System.out.println("scan not null!");
+			if(this.scan.hasNextLine()) {
 				return true;
 			} else {
 				return false;
@@ -50,12 +48,9 @@ public abstract class ConfigurationReader {
 		return false;
 	}
 	
-	public String nextLine() {
-		classScan = scan;
-		while(classScan != null) {
-			return classScan.nextLine();
-		}
-		return "";
+	public String nextLine() throws IOException {
+		//System.out.println(this.scan.next());
+		return this.scan.nextLine();
 	}
 	
 	public abstract void load() throws IOException;
