@@ -1,5 +1,6 @@
 package request;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.stream.Stream;
 
@@ -12,15 +13,14 @@ public class Request {
 	private HashMap<String,String> headers;
 	private String requestString = "";
 	private boolean RequestParseValid = true;
+	private InputStream inputStream;
 
 	public Request( String test ) {
 		this.requestString = test;
 	}
 
-	public Request( Stream client) {
-		while ( client.iterator().hasNext() ) {
-			requestString += client.iterator().toString();
-		}
+	public Request( InputStream in ) {
+		this.inputStream = in;
 	}
 
 	public void parse() {

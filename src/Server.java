@@ -22,17 +22,15 @@ public class Server {
 
 			socket = new ServerSocket(Integer.parseInt(HttpdConf.getConfigOptions().get("Listen")));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		while( true ) {
 			try {
 				connection = socket.accept();
-				//Worker worker = new Worker();
+				Worker worker = new Worker( this.connection, this.configuration, this.mimeTypes );
 				connection.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

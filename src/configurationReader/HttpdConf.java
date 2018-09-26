@@ -21,7 +21,6 @@ public class HttpdConf extends ConfigurationReader {
 	public void load() throws IOException { 
 		
 		while(this.hasMoreLines()) {
-			//System.out.println("line: " + this.nextLine());
 			if((this.nextLine() != "") && ( this.nextLine().charAt(0) != '#' )) {
 				String[] lines = this.nextLine().split(" ");
 								
